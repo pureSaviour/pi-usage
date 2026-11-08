@@ -16,14 +16,20 @@ Account balances, subscription quotas, and per-model session costs for the [Pi c
 ## 安装
 
 ```bash
+pi install npm:pi-usage-balances
+```
+
+也可从 GitHub 安装：
+
+```bash
 pi install git:github.com/pureSaviour/pi-usage
 ```
 
-重启 Pi，或执行 `/reload`。不要同时启用其他注册 `/usage` 命令的扩展。
+选择一种安装方式即可，然后重启 Pi，或执行 `/reload`。不要同时启用其他注册 `/usage` 命令的扩展。
 
 本地开发可用 `pi -e ./src/index.ts` 临时加载，或通过 `pi install /absolute/path/to/pi-usage` 安装。TypeScript 由 Pi 加载，无需构建。
 
-**npm 包名预留为 `pi-usage-balances`，尚未发布。** npm 上的 `pi-usage` 属于其他项目，不是本插件。
+npm 包名为 **[`pi-usage-balances`](https://www.npmjs.com/package/pi-usage-balances)**。npm 上的 `pi-usage` 属于其他项目，不是本插件。
 
 ## 命令
 
@@ -198,14 +204,14 @@ npm pack --dry-run
 
 仓库不包含真实凭据、生成产物或临时模拟测试文件。运行时没有额外 dependencies；Pi 提供的模块通过 peerDependencies 声明。
 
-Pi 官网 [Package Catalog](https://pi.dev/packages) 从 npm 发现带 `pi-package` 关键词的包。当前清单已配置该关键词、仓库地址和公开发布设置，但 **GitHub 上线不等于官网收录**。维护者完成 npm 登录后可发布：
+Pi 官网 [Package Catalog](https://pi.dev/packages) 从 npm 发现带 `pi-package` 关键词的包。清单已配置该关键词、仓库地址和公开发布设置；npm 发布后仍需等待官网索引，**不代表获得官网人工推荐或置顶**。
 
 ```bash
 npm login
 npm publish --access public
 ```
 
-首次发布前确认 `pi-usage-balances` 仍可注册。发布成功并被目录索引后，才能使用 `pi install npm:pi-usage-balances`。被目录发现不代表获得官网人工推荐或置顶。
+后续发布先更新 package.json 和 package-lock.json 中的版本号，再检查、提交并发布。npm 已发布的版本不能覆盖；安装无需等待 Pi 官网目录完成索引。
 
 ## 参考
 
