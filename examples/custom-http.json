@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "timeoutMs": 15000,
+  "accounts": [
+    {
+      "id": "deepseek-work",
+      "name": "DeepSeek 工作账户",
+      "provider": "deepseek",
+      "tokenEnv": "DEEPSEEK_WORK_API_KEY",
+      "enabled": false
+    },
+    {
+      "id": "my-gateway",
+      "name": "自建网关账户",
+      "provider": "my-gateway",
+      "enabled": false,
+      "tokenEnv": "MY_GATEWAY_TOKEN",
+      "request": {
+        "url": "https://gateway.example.com/api/balance",
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer ${token}",
+          "X-Account": "${env:MY_GATEWAY_ACCOUNT_ID}"
+        }
+      },
+      "response": {
+        "success": {
+          "path": "code",
+          "equals": 0
+        },
+        "plan": {
+          "path": "data.plan"
+        },
+        "metrics": [
+          {
+            "kind": "balance",
+            "label": "账户余额",
+            "remaining": {
+              "path": "data.balance"
+            },
+            "unit": {
+              "value": "CNY"
+            }
+          },
+          {
+            "kind": "quota",
+            "label": "5 小时",
+            "usedPercent": {
+              "path": "data.windows.five_hour.used_ratio",
+              "scale": 100
+            },
+            "resetAt": {
+              "path": "data.windows.five_hour.reset_at"
+            },
+            "resetFormat": "seconds"
+          },
+          {
+            "kind": "quota",
+            "label": "周限额",
+            "remaining": {
+              "path": "data.weekly.remaining"
+            },
+            "limit": {
+              "path": "data.weekly.limit"
+            },
+            "unit": {
+              "value": "requests"
+            },
+            "resetAt": {
+              "path": "data.weekly.reset_at"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

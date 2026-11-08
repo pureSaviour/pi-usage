@@ -1,0 +1,50 @@
+{
+  "name": "pi-usage-balances",
+  "version": "0.1.0",
+  "description": "On-demand account balances and subscription quotas for Pi",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pureSaviour/pi-usage.git"
+  },
+  "homepage": "https://github.com/pureSaviour/pi-usage#readme",
+  "bugs": { "url": "https://github.com/pureSaviour/pi-usage/issues" },
+  "author": "pureSaviour",
+  "publishConfig": { "access": "public" },
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "usage",
+    "balance",
+    "quota"
+  ],
+  "files": [
+    "src",
+    "README.md",
+    "GLOSSARY.md",
+    "examples",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.5.0",
+    "@earendil-works/pi-tui": "^1.5.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}

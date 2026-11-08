@@ -1,0 +1,6 @@
+node_modules/
+*.tgz
+.pi/
+.env
+.env.*
+/pi-usage.json
