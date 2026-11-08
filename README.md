@@ -21,17 +21,17 @@ Account balances, subscription quotas, and per-model session costs for the [Pi c
 pi install git:github.com/pureSaviour/pi-usage
 ```
 
-npm 首次发布完成后，也可使用：
+npm 的 `0.1.0` 完成处理并上线后，也可使用：
 
 ```bash
-pi install npm:pi-usage-balances
+pi install npm:pi-usage-balances@0.1.0
 ```
 
 选择一种安装方式即可，然后重启 Pi，或执行 `/reload`。不要同时启用其他注册 `/usage` 命令的扩展。
 
 本地开发可用 `pi -e ./src/index.ts` 临时加载，或通过 `pi install /absolute/path/to/pi-usage` 安装。TypeScript 由 Pi 加载，无需构建。
 
-npm 包名为 **`pi-usage-balances`**；首次发布尚未完成，目前受 npm 账户的双因素认证要求阻塞。npm 上的 `pi-usage` 属于其他项目，不是本插件。
+npm 包名为 **[`pi-usage-balances`](https://www.npmjs.com/package/pi-usage-balances)**。首次 `0.1.0` 发布请求已被 npm 接收，正在等待服务端处理；当前的 `0.0.0-stage` 是系统临时占位版本，不包含本插件，不能视为正式发布成功。npm 上的 `pi-usage` 属于其他项目，不是本插件。
 
 ## 命令
 
